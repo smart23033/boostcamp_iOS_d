@@ -19,6 +19,42 @@ var greeting = " Hello, playground"
     * Naming
         * Promote Clear Usage
 
+> 37 페이지
+### 수정 전
+```swift
+let meaningOfLife = String(number)
+```
+
+### 수정 후
+```swift
+let stringFromNumber = String(number)
+```
+
+### 근거
+* Swift API Design Guidelines
+    * Naming
+        * Promote Clear Usage
+
+> 39 페이지
+### 수정 전
+```swift
+let reading1: Float?
+let reading2: Float?
+let reading3: Float?
+```
+
+### 수정 후
+```swift
+let gauge1: Float?
+let gauge2: Float?
+let gauge3: Float?
+```
+
+### 근거
+* Swift API Design Guidelines
+    * Naming
+        * Promote Clear Usage
+
 > 42 페이지
 ### 수정 전
 ```swift
