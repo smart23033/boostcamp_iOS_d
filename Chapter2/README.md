@@ -18,3 +18,23 @@ var greeting = " Hello, playground"
 * Swift API Design Guidelines
 	* Naming
 		* Promote Clear Usage
+
+> 44 페이지
+
+### 수정 전
+```swift
+enum PieType {
+    case Apple
+    case Cherry
+    case Pecan
+}
+```
+
+### 수정 후
+```swift
+enum PieType {
+    case apple
+    case cherry
+    case pecan
+}
+```
