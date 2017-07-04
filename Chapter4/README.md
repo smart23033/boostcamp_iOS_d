@@ -64,9 +64,9 @@
 
 ### 근거
 
--  [Swift 4 Language Guide](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html)
-  - Optional Binding
-    - Swift 3 이 후, if let문에서 var와 let의 생략이 불가능
+* [Swift 4 Language Guide](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html)
+  * Optional Binding
+    * Swift 3 이 후, if let문에서 var와 let의 생략이 불가능
 
 
 
