@@ -16,6 +16,7 @@ override func viewDidLoad() {
 
 ### 수정 후
 ```swift
+override func viewDidLoad() {
 	// ...
 	secondView.backgroundColor = UIColor.blue
 	// ...
