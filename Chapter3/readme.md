@@ -1,5 +1,4 @@
 # Swift 예제코드 바로잡기 3장
----
 
 > 54 페이지
 
@@ -17,6 +16,7 @@ override func viewDidLoad() {
 
 ### 수정 후
 ```swift
+override func viewDidLoad() {
 	// ...
 	secondView.backgroundColor = UIColor.blue
 	// ...
