@@ -12,7 +12,7 @@ MVC, MVP, MVVM 패턴은 Application의 행동을 세 가지의 역할로 레이
 
 ### MVC 패턴
 
-![./Resources/Traditional_MVC.png](traditional-mvc)
+![traditional-mvc](./Resources/Traditional_MVC.png)
 
 #### 출처
 
