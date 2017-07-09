@@ -1,5 +1,3 @@
-# boostcamp_iOS_d
-
 # MVC, MVVM, MVP 디자인 패턴과 디자인 패턴의 필요성
 
 ### 개요
@@ -10,10 +8,24 @@ MVC, MVP, MVVM 패턴은 Application의 행동을 세 가지의 역할로 레이
 * View : 레이어에 표현되는 것을 책임지는 영역. 말 그대로 View와 관련된 영역.
 * Controller / Presenter / ViewModel : View를 업데이트하는 책임과 Model을 변경하는 책임을 가지며 경우에 따라 Activity의 역할을 수행하기도 한다. 
 
-### MVC 패턴
+### MVC
+
+* 전통적인 MVC
 
 ![traditional-mvc](./Resources/Traditional_MVC.png)
 
+* Apple's MVC
+
+![apple-mvc](./Resources/Apple_MVC.png)
+
+### MVP
+
+![traditional-mvp](./Resources/MVP.png)
+
+### MVVM
+
+![mvvm](./Resources/MVVM.png)
+
 #### 출처
 
-[Apple Developer MVP 문서](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html)
+[Apple Developer MVC 문서](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html)
