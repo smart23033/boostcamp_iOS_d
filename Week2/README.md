@@ -1,8 +1,19 @@
 # boostcamp_iOS_d
 
-### iOS D조 쌍쌍바 2주차 모둠 과제
+# MVC, MVVM, MVP 디자인 패턴과 디자인 패턴의 필요성
 
-* MVC/MVVM/MVP 디자인 패턴에 대해 알아보고, 프로그램 설계에서 디자인 패턴이 왜 필요할까에 대해 토론하고, 주된 논의 내용과 결론을 요약해주세요. 제출형식은 mark down 혹은 pdf 포멧의 문서로 합니다. **[분량 : A4용지 5장 이내]**
-* Cocoa Touch Framework는 어떤 디자인패턴에 가깝게 구현이 되었을지에 대해 토론하고 주된 논의 내용과 결론을 요약해주세요. 제출형식은 mark down 혹은 pdf 포멧의 문서로 합니다. **[분량 : A4용지 5장 이내]**
+### 개요
 
+MVC, MVP, MVVM 패턴은 Application의 행동을 세 가지의 역할로 레이어를 나누는 디자인 패턴이다. 각각은 이름에서도 알 수 있듯이 MV(…)로 시작된다. 여기서 M, V, C/P/VM는 각각 Model(M), View(V), Controller / Presenter / ViewModel(C/P/VM) 을 뜻한다. 각각은 다음과 같은 의미를 가진다.
 
+* Model : Data 접근을 위한 Layer 혹은 데이터 자체를 책임지는 영역
+* View : 레이어에 표현되는 것을 책임지는 영역. 말 그대로 View와 관련된 영역.
+* Controller / Presenter / ViewModel : View를 업데이트하는 책임과 Model을 변경하는 책임을 가지며 경우에 따라 Activity의 역할을 수행하기도 한다. 
+
+### MVC 패턴
+
+![./Resources/Traditional_MVC.png](traditional-mvc)
+
+#### 출처
+
+[Apple Developer MVP 문서](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html)
