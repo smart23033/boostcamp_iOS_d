@@ -33,13 +33,15 @@
 
 여기까지 보았을 때에는 훌륭한 방법처럼 보일 수 있지만, **안타깝게도 그렇지 않다.** 아래의 그림을 보자.
 
----
+### Realistic Apple's MVC?
 
 ![realistic-mvc](./Resources/Realistic_MVC.png)
 
 위 그림은, iOS에서 실제로 MVC가 동작하는 방식이다. UIView를 생성할 때 함께 생성되는 UIViewController 객체가 바로 Apple에서 말하는 `Controller`에 해당하는데, 이 때문에 UIViewController는 View가 로드되어야 비로소 생성된다. **즉, View의 라이프사이클에 Controller가 종속될 수 밖에 없다.** 
 
-이러한 문제는 유닛테스트에서 나타난다. Controller 입장에서는 위에서 설명한 세 가지 기능이 View가 로드되어야만 테스트가 가능하고, View 입장에서는 자신의 라이프사이클이나 테스트를 위한 View를 만들기가 어렵다.
+때문에 Controller를 View로부터 분리하기가 매우 어려워지고, **프로젝트가 진행되면서 Controller는 엄청나게 커질 수 밖에 없다.** MVC 패턴을 위반하지 않으려면 비지니스 로직이나 데이터 변경 로직을 Model에게 할당하기도 힘들고, View는 애초에 Controller에게 유저 액션을 전달하는 기능만 수행하므로 Controller의 부담을 줄이는데에는 선택의 여지가 별로 없다. 
+
+**문제는 유닛테스트에서도 나타난다.** Controller 입장에서는 위에서 설명한 세 가지 기능에 대한 테스트가 View가 로드되어야 가능하고, View 입장에서는 자신의 라이프사이클이나 테스트를 위한 View를 만들기가 어렵다.
 
 ---
 
