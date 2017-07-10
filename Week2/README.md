@@ -53,11 +53,122 @@
 
 ## MVP
 
+### Apple's MVC의 한계
+
+MVC의 목적은 Model과 View의 완전한 분리를 통해 재사용성을 높이고, 각각의 역할을 분명히 하여 스파게티 코드를 방지하는 데 있었다. 이를 위해 비즈니스 로직을 담당하는 코드는 Model, UI를 담당하는 코드는 View로 나눴고 그를 이어주는 역할을 하는 코드는 Controller에 따로 분리하도록 하였다. 
+
+기존 Apple의 MVC는 View와 Controller가 너무 딱 붙어있었다. MVC는 Massive View Controller라는 말이 나올 정도로 Controller에 많은 코드들이 들어가게 되어버린 것이다. View Controller는 모든 View의 delegate나 datasource가 되었고, 네트워크 요청에 대한 처리도 하고 있을 수도 있는 덩어리가 되어버리는 문제가 발생하였다. 
+
+결국 MVC의 목적인 각각의 코드에 대해 역할을 명확히 나누는 것을 어기게되고, 그 때문에 유닛테스트를 할 때에도 힘들어지는게 사실이다.
+
 ![traditional-mvp](./Resources/MVP.png)
 
-## MVVM
+### Presenter의 탄생
+
+View와 Controller가 붙어있는 것을 해결하기위해 중간다리 역할을 하는 Presenter가 나타났다. MVP는 ViewController와 View를 View Layer에 몰아넣고, Model과 View를 이어주는 Presenter를 따로 만들어 줌으로써 ViewController의 라이프 사이클에는 영향을 끼치지 않고, View가 쉽게 테스트 가능하도록 만들 수 있게 되었다. Presenter는 레이아웃 관련 코드가 없고 오직 View의 데이터와 상태를 갱신하는 역할만 갖게 된 것이다.
+
+---
+
+### 그래서 MVP는..?
+
+* MVP는 View와 Model의 책임을 완전히 분리하게 되었다.
+* View와 Model에 대해 독립적으로 테스트를 하기에 수월해졌다. 
+* MVC에 비해 코드의 양이 길어진다는 단점이 있다.
+
+# MVVM
+
+## MVVM 패턴의 개요
+
+#### 모델(Model)
+
+MVC와 동일하다.
+
+#### 뷰(View)
+
+iOS에서 뷰에는 UIView를 비롯해 **UIViewController** 조차도 뷰로 분류됩니다. UIViewController이 Life Cycle과 강력하게 연결되어 있으므로 View의 단위 테스트를 위해서는 UIViewController도 View에 포함되야 하기 때문입니다.
+
+#### 뷰모델(ViewModel)
+
+iOS에서 뷰모델은 모델을 감싸고 뷰와 묶일(Binding) 옵저버블 데이터를 준비해야 합니다. 또한 뷰가 모델에 이벤트를 전달할 수 있도록 훅(리스너)을 준비해야 하며, 뷰모델이 뷰에 종속되지 않도록 내부에 UIKit과 관련 코드를 작성해서는 안됩니다.
 
 ![mvvm](./Resources/MVVM.png)
+
+## MVVM 패턴의 예제
+
+```swift
+import UIKit
+
+struct Person { // Model
+    let firstName: String
+    let lastName: String
+}
+
+// ViewModel Protocol
+protocol GreetingViewModelProtocol: class {
+    var greeting: String? { get }
+
+    var greetingDidChange: ((GreetingViewModelProtocol) -> ())? { get set } // Hook
+    
+    init(person: Person)
+    
+    func showGreeting()
+}
+
+// ViewModel
+class GreetingViewModel : GreetingViewModelProtocol {
+    let person: Person
+    var greeting: String? {	// 
+        didSet {
+            self.greetingDidChange?(self)
+        }
+    }
+    
+    var greetingDidChange: ((GreetingViewModelProtocol) -> ())?
+    
+    required init(person: Person) {
+        self.person = person
+    }
+    
+    func showGreeting() {
+        self.greeting = "Hello" + " " + self.person.firstName + " " + self.person.lastName
+    }
+}
+
+// View
+class GreetingViewController : UIViewController {
+    var viewModel: GreetingViewModelProtocol! {
+        didSet {
+            self.viewModel.greetingDidChange = { [unowned self] viewModel in
+                self.greetingLabel.text = viewModel.greeting
+            }
+        }
+    }
+    let showGreetingButton = UIButton()
+    let greetingLabel = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.showGreetingButton.addTarget(self.viewModel, action: "showGreeting", forControlEvents: .TouchUpInside)
+    }
+    // layout code goes here
+}
+
+// MVVM 적용
+let model = Person(firstName: "David", lastName: "Blaine")
+let viewModel = GreetingViewModel(person: model)
+let view = GreetingViewController()
+
+view.viewModel = viewModel
+```
+
+
+
+## MVVM 패턴의 장단점
+
+- **책임의 분리** — MVVM의 **ViewModel**은 MVP의 **Presenter**보다 책임이 더 많다. MVP 일때 **Presenter**는 단순히 매개자 역할만 해주지만, **ViewModel**은 바인딩을 해줌으로써 Model과 View의 데이터 동기화를 책임져 주어야 한다.
+- **테스트 용이성** —  **ViewModel**에 UIKit과 관련 코드가 없기 때문에 **View**가 분리되어 **View**의 단위 테스트가 쉽다.
+- **패턴 적용 난이도** — 바인딩을 도와주는 라이브러리를 함께 사용하지 않으면 많은 기반 코드를 작성해야 한다는 단점이 있지만, 이를 해결해줄 수많은 좋은 라이브러리(ReactiveCocoa, RxSwift, ...)들이 존재한다, 물론 개념과 사용법을 익히는 것이 쉽지는 않아 익숙해지기까지 상당한 시간이 필요하다.
+  ​
 
 ## 디자인 패턴의 필요성
 만약 앱을 개발할 때 디자인 패턴이란걸 준수하지 않은 채 되는대로 개발을 한다면 이 앱에서 기능이 추가되거나 수정이 필요할 때, 즉 유지 보수가 필요한 경우 어떤 문제가 발생할까?
@@ -79,3 +190,4 @@
 #### 출처
 
 [Apple Developer MVC 문서](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html)
+[NSLondon에서 발표된 iOS 앱 개발 발표자료](https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52#.wtcp3gqzw)
