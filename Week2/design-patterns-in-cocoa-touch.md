@@ -102,15 +102,13 @@ Cocoa Touch란...
 
   ​
 
-* ### Abstract Factory Pattern###
+* ### Abstract Factory Patter
 
   세부 클래스를 지정하지 않고 관련 객체 또는 종속 객체의 패밀리를 생성할 수 있는 인터페이스를 제공하는 디자인 패턴
 
-  **클래스 클러스터 (Class Cluster)** 라고도 부른다.
+  **클래스 클러스터 (Class Cluster)** 라고도 부르며 객체를 생성하는 시점에 사용하는 특정한 클래스가 내부의 여러 하위 클래스를 추상화하여 생성하는 데이터에 따라 적합한 내부 클래스로 객체 인스턴스를 생성해준다.
 
-  객체를 생성하는 시점에 사용하는 특정한 클래스가 내부의 여러 하위 클래스를 추상화하며, 생성하는 데이터에 따라 적합한 내부 클래스로 객체 인스턴스를 생성해준다.
-
-  * 추상 팩토리 클래스 패턴은 확장에 매우 용의한 패턴으로 쉽게 다른 서브 클래스들을 확장할 수 있다.
+  또한 추상 팩토리 클래스 패턴은 확장에 매우 용의한 패턴으로 쉽게 다른 서브 클래스들을 확장할 수 있다.
 
   #### Cocoa Touch Example
 
@@ -118,7 +116,7 @@ Cocoa Touch란...
 
   대표적인 예로 NSNumber 클래스가 있는데 여러 타입을 하나의 클래스로 추상화해서 다룰 수 있도록 구현되어 있다.
 
-  ![NSNumber](./Resource/ClassCluster_NSNumber.png)
+  ![NSNumber](./Resources/ClassCluster_NSNumber.png)
 
   ​
 
@@ -138,6 +136,8 @@ Cocoa Touch란...
 
      (이렇게 생성된 객체는 앱의 이벤트 전달과 액션 처리를 위한 무한 루프를 가지고 있다.)
 
+  ​
+
 * ###  Adapter Pattern
 
   인터페이스 호환성의 문제로 같이 쓸 수 없는 클래스들을 연결해서 쓸 수 있게 해주는 디자인 패턴
@@ -154,5 +154,3 @@ Cocoa Touch란...
   Protocol 또는 Block
 
   Delegation - Adapter, Decorator, Template 메서드의 혼합
-
-  Delegation 메서드로 목표를 달성 할 수 없는 경우를 제외하고는, 클래스의 서브 클래스 대신 항상 Delegation 매커니즘을 사용해야합니다.
