@@ -102,7 +102,7 @@ Cocoa Touch란...
 
   ​
 
-* ### Abstract Factory Patter
+* ### Abstract Factory Pattern
 
   세부 클래스를 지정하지 않고 관련 객체 또는 종속 객체의 패밀리를 생성할 수 있는 인터페이스를 제공하는 디자인 패턴
 
@@ -122,7 +122,7 @@ Cocoa Touch란...
 
 * ###  Singleton Pattern
 
-  전역에서 접근할 수 있는 단 하나의 인스턴스를 생성하는 디자인 패턴
+  해당 클래스에게 전역에서 접근할 수 있는 단 하나의 인스턴스를 생성하는 디자인 패턴
 
   전역에서 접근이 가능하므로 다른 객체들이 서로 공유해서 사용할 수 있다.
 
@@ -144,13 +144,10 @@ Cocoa Touch란...
 
   한 클래스의 인터페이스를 클라이언트에서 사용하고자 하는 다른 인터페이스로 변환해준다.
 
-  1. 객체 어댑터
-
-  2. 클래스 어댑터
-
-
   #### Cocoa Touch Example
 
-  Protocol 또는 Block
+  Cocoa Touch 프레임워크에서는 Protocol을 이용하여 Adapter패턴을 구현한다.
 
-  Delegation - Adapter, Decorator, Template 메서드의 혼합
+  간단한 예로 NSCoding이라는 프로토콜이 있는데 NSCoding 프로토콜은  NSKeyedArchiver를 이용하여 클래스를 저장하고자 할 때 저장하려는 클래스가 NSCoding 프로토콜에 따라 구현 되어야 한다. 이 프로토콜을 구현한 클래스는 NSKeyedArchiver를 사용할 수 있게 되므로, 여기서 NSCoding 클래스가 Adapter Pattern 이 된다.
+
+  그 외 Protocol 친숙한 예시로는 UITableViewDelegate, UIScrollViewDelegate, 등이 있다.
