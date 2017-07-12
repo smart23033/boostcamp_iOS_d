@@ -15,4 +15,4 @@ TDD (Test Driven Development)
 
 `EduContents_iOS_D_Week2_TDD.pdf` : PDF 파일
 
-`/ExampleProject` : Xcode 예제 프로젝트 파일
+`/FoodTracker` : TDD 적용 Xcode 예제 프로젝트 파일
