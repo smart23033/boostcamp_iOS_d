@@ -10,4 +10,4 @@
     * Size-Class-Specific Layout
 
 <img src="./../Resources/calculatorPortrait.PNG" width="256px" />
-<img src="./../Resources/calculatorLandscape.PNG" width="256px" />
+<img src="./../Resources/calculatorLandscape.PNG" width="512px" />
