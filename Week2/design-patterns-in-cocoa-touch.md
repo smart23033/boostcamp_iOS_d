@@ -1,9 +1,5 @@
 # Design patterns in Cocoa touch
 
-## Cocoa Touch란?
-
-Cocoa Touch란...
-
 ## Cocoa Touch에서 사용되는 디자인 패턴들
 
 * ### Facade 패턴
