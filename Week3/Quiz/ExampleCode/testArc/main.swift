@@ -53,11 +53,3 @@ class CreditCard {
         print("deinit CreditCard instance")
     }
 }
-
-//var seok: Person? = Person()
-//var apt: Apartment? = Apartment()
-//seok.apartment = apt
-//seok.creditCard = CreditCard()
-//
-//seok = nil
-//apt = nil
