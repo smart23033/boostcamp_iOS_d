@@ -8,6 +8,7 @@
 
 import Foundation
 
+var loop = true
 class MyThreadingClass: NSObject {
     var count = 0
     let lock = NSLock()
@@ -17,8 +18,9 @@ class MyThreadingClass: NSObject {
             // lock
             lock.lock()
             
-            if count > 100 {
+            if count >= 100 {
                 print("end!")
+                loop = false
                 return
             }
             // critical section
@@ -28,14 +30,13 @@ class MyThreadingClass: NSObject {
             // unlock
             lock.unlock()
             
-            Thread.sleep(forTimeInterval: 1)
-        }
+            }
         
     }
     
     override init() {
         super.init()
-        for _ in 0..<5 {
+        for _ in 0..<10 {
             Thread(target: self, selector: #selector(runLoop), object: nil).start()
         }
     }
@@ -43,6 +44,6 @@ class MyThreadingClass: NSObject {
 
 let threadingObject = MyThreadingClass()
 
-while true {
+while loop {
     // to test thread
 }
