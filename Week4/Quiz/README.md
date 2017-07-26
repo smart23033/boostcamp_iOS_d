@@ -2,6 +2,8 @@
 
 ## ** 그림판 앱 만들기 **
 
+![paintExample](./Resources/paintExample.jpeg)
+
 1. 터치이벤트를 통해 그림을 그릴 수 있는 그림판 앱을 만드세요.
 
 ### 해결실마리
