@@ -2,15 +2,15 @@
 
 ### iOS D조 쌍쌍바
 
-> [김성준(조장)](https://github.com/smart23033/boostcamp_iOS_sjsj) : 성준성준
+> [김성준(조장)](https://github.com/smart23033/boostcamp_iOS_sjsj) `성준성준`
 >
-> [김유석](https://github.com/nois0720/boostcamp_iOS_nois) : 노이스
+> [김유석](https://github.com/nois0720/boostcamp_iOS_nois) `노이스`
 >
-> [구찬우](https://github.com/ni9n/boostcamp_iOS_brix) : 블릭
+> [구찬우](https://github.com/ni9n/boostcamp_iOS_brix) `블릭`
 >
-> [김영식](https://github.com/Sikurity/boostcamp_iOS_yeongsik) : 감자
+> [김영식](https://github.com/Sikurity/boostcamp_iOS_yeongsik) `감자`
 >
-> [조준영](https://github.com/chojunyng/boostcamp_iOS_blu) : 블루
+> [조준영](https://github.com/chojunyng/boostcamp_iOS_blu) `블루`
 
 * ### 매주 공통과제
 
