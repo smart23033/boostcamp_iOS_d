@@ -2,7 +2,7 @@
 
 ### iOS D조 쌍쌍바
 
-> [김성준(모둠장)](https://github.com/smart23033/boostcamp_iOS_sjsj) : 성준성준
+> [김성준(조장)](https://github.com/smart23033/boostcamp_iOS_sjsj) : 성준성준
 >
 > [김유석](https://github.com/nois0720/boostcamp_iOS_nois) : 노이스
 >
