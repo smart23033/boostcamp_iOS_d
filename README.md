@@ -8,7 +8,7 @@
 >
 > [구찬우](https://github.com/ni9n/boostcamp_iOS_brix) `블릭`
 >
-> [김영식](https://github.com/Sikurity/boostcamp_iOS_yeongsik) `감자`
+> [이영식](https://github.com/Sikurity/boostcamp_iOS_yeongsik) `감자`
 >
 > [조준영](https://github.com/chojunyng/boostcamp_iOS_blu) `블루`
 
